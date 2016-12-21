@@ -1,0 +1,37 @@
+{
+  "dubboServiceURL": "dubbo://172.19.65.244:20880",
+  "execOrder": 1,
+  "intfName": "com.qianmi.pc.stock.api.InventoryBillQueryProvider:1.0.0@getBillIdByTradeId",
+  "testCases": [
+    {
+      "name": "根据订单号获取出入库单ID",
+      "params": [
+        {
+          "chainMasterId": "A967473",
+          "tradeIds": [
+            "T20160902231648932",
+            "T20160902221648919"
+          ]
+        }
+      ],
+      "expects": [
+        {
+          "operator": "=",
+          "path": "$.data.size()",
+          "value": 2
+        },
+        {
+          "operator": "=",
+          "path": "$.data.T20160902231648932",
+          "value": "B2016090224522100"
+        },
+        {
+          "operator": "=",
+          "path": "$.data.T20160902221648919",
+          "value": "B2016090224512131"
+        }
+      ]
+    }
+  ],
+  "testServerURL": null
+}
